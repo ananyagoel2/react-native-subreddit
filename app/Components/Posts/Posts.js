@@ -28,7 +28,7 @@ export default class Posts extends Component {
             limit:5,
             postDataSource :ds
         }
-        // this.pressRow= this.pressRow.bind(this);
+        this.pressRow= this.pressRow.bind(this);
         this.renderRow = this.renderRow.bind(this);
     }
     componentDidMount(){
@@ -48,7 +48,9 @@ export default class Posts extends Component {
             console.log(e)
         }
         return(
-            <TouchableHighlight>
+            <TouchableHighlight onPress={()=>{
+                this.pressRow(post)
+            }}>
                 <View style={styles.row}>
                     {image}
                     <Text style={styles.textrow}>
@@ -57,6 +59,12 @@ export default class Posts extends Component {
                 </View>
             </TouchableHighlight>
         )
+    }
+
+
+    pressRow(post){
+        Actions.Details(post)
+
     }
 
 

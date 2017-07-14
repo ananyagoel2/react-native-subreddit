@@ -12,11 +12,15 @@ import {
 } from 'react-native';
 
 export default class HeaderBar extends Component {
+
+    static defaultProps={
+        title:'MobileTodos'
+    }
     render() {
         return (
             <View style={styles.bar}>
                 <Text style={styles.text}>
-                    SubReddits
+                    {this.props.title}
                 </Text>
             </View>
         );
